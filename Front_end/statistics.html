@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css\satistics.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+
+    <div style="display: flex; flex-direction: row; width: 100wh; height: 100vh;">
+      <div style="display: flex; flex-direction: row;
+      width: 20%;
+      height: 160%;
+      padding: 20px;
+      /* background-color: aquamarine; */
+      /* background-color: white; */
+      border-right: 0.5px solid lightblue;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+      ">
+        <div style="display: flex; flex-direction: column;">
+          <div style="display:flex; flex-direction: row; justify-content: center; align-items: center;" >
+            <img src="tse.png" alt="" width="70%" style="border: 1px solid black;border-radius: 100px;box-shadow: 0 0 30px rgba(192, 19, 211, 0.2)">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; justify-content: center; align-items: center;font-family: Arial, Helvetica, sans-serif;font-size: 22px;">
+            <div>ADMIN</div>
+  
+            <!-- SIDEBAR BUTTON -->
+          <!-- SIDEBAR BUTTON -->
+          <button onclick="goToHomePage()" style="display: flex; cursor: pointer; padding: 4px 10px;  width: 200px; border: none; font-size: 18px; font-family:cursive;font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                home
+                </span>
+            </i> 
+            <div style="margin-left: 10px;">
+              Home 
+
+            </div>
+            <script>
+              function goToHomePage() {
+                window.location.href = 'admin.html';
+              }
+              </script>
+          </button>
+          <button onclick="goToProductPage()" style="display: flex; cursor: pointer; padding: 4px 10px;  width: 200px; border: none; font-size: 18px; font-family:cursive;font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                add_shopping_cart
+                </span>
+            </i> 
+            <div style="margin-left: 10px;">
+              Products 
+
+            </div>
+            <script>
+              function goToProductPage() {
+                window.location.href = 'adding_admin.html';
+              }
+              </script>
+          </button>
+          <button onclick="goToDeletePage()" style="display: flex; cursor: pointer; padding: 4px 10px;  width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;" 
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                summarize
+                </span>
+            </i>
+            <div style="margin-left: 10px;">
+              Delete
+            </div>
+             </button>
+             <script>
+              function goToDeletePage() {
+                window.location.href = 'delete_admin.html';
+              }
+              </script>
+          <button onclick="goToTransactionPage()" style="display: flex; cursor: pointer; padding: 4px 10px;   width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                paid
+                </span>
+            </i>
+            <div style="margin-left: 10px;">
+              Transaction 
+
+            </div>
+            <script>
+              function goToTransactionPage() {
+                window.location.href = 'transaction_admin.html';
+              }
+              </script>
+            </button>
+              <button onclick="goToStatisticPage()" style="display: flex; cursor: pointer; padding: 4px 10px;   width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+                onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+                >
+                  <i  class="material-icons">
+                    <span class="material-symbols-rounded">
+                      bar_chart
+                      </span>
+                  </i>
+                  <div style="margin-left: 10px;">
+                    Statistics 
+                  </div>
+                  <script>
+                    function goToStatisticPage() {
+                      window.location.href = 'statistics.html';
+                    }
+                    </script>
+                  </button>
+                  <button onclick="goToRunningPage()" style="display: flex; cursor: pointer; padding: 4px 10px;   width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+                  onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+                  >
+                    <i  class="material-icons">
+                      <span class="material-symbols-rounded">
+                        add_circle
+                        </span>
+                    </i>
+                    <div style="margin-left: 10px;">
+                      Account 
+                    </div>
+                    <script>
+                      function goToRunningPage() {
+                        window.location.href = 'account.html';
+                      }
+                      </script>
+                    </button>
+                    <button onclick="logout()" style="display: flex; cursor: pointer; padding: 4px 10px;   width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+                    onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+                    >
+                      <i  class="material-icons">
+                        <span class="material-symbols-outlined">
+                          logout
+                          </span>
+                      </i>
+                      <div style="margin-left: 10px;">
+                        Logout
+        
+                      </div>
+                      </button>
+  
+          </div>
+  
+        </div>
+        
+      </div>
+     
+      <div style="
+      display: flex; 
+      flex-direction:column; 
+      justify-content: space-between;
+              width: 100%;
+      /* background-color: blueviolet; */
+      ">
+  
+        
+        <div style="display: flex; flex-direction: column; width: 100%;">
+  
+          <div style="display: flex; flex-direction: row; justify-content:flex-end; align-items: center; width: 100%; height: 60px;  
+          /* background-color: blanchedalmond; */
+          background-color: white;
+          border-bottom: 1px solid lightblue ;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          ">
+                  <div class="running-text">
+                    <p>ONLINE GROCERY MANAGEMENT SYSTEM</p>
+                  </div>
+            
+            <div style="display: flex; flex-direction: row; 
+                height: 50px; 
+                width: 50px;
+                margin-right: 20px;
+                border-radius: 20px;
+               background-color: lightblue;
+               justify-content: center;
+               align-items: center;">
+             
+              <img src="user-1.jpg" alt="" width="35" height="35" class="rounded-circle" >
+  
+            </div>
+  
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; width: 100%;"> 
+        <section style="display: flex;">
+        <div style=" display: inline-block; flex-direction: column; justify-content: center; align-items: center; 
+        /* background-color: pink;  */
+        /* background-color: white; */
+         height: 100%;
+         width: 60%;">
+
+         <!-- CHART -->
+         <div style=" margin:30px; padding: 20px; border: 1px solid #E7E8F0; 
+         background-color: #E6D1F2; 
+         border-radius: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);" >
+           <h2  style="margin:10px">Product Chart</h2>
+           <div style="min-height: 100px; height: 200px; min-width: 200px; margin:20px;" class="chart-container">
+             <!-- <div style="display: flex; flex-direction: column; height: 200px; width: 500px; background-color: rgb(20, 185, 200);"> -->
+               <div style="display: flex; flex-direction: column; 
+               height: 350px;
+                /* width: 80%;  */
+                width: 450px;
+                /* background-color: rgb(20, 185, 200); */
+                ">
+               <canvas id="barChart"></canvas>
+             </div>
+
+
+             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+             
+             <script>
+               document.addEventListener("DOMContentLoaded", function() {
+                 // Make a fetch request to the server endpoint
+                 fetch("http://localhost:3000/getproducts")
+                   .then(response => response.json())
+                   .then(response => {
+                     // Extract labels and quantities from the response
+                     const labels = response.map(product => product.prod_name);
+                     const quantities = response.map(product => product.prod_qty);
+         
+                     // Create the bar chart data
+                     const data = {
+                       labels: labels,
+                       datasets: [
+                         {
+                           label: "Quantity",
+                           data: quantities,
+                           backgroundColor: "rgba(0, 123, 255, 0.5)",
+                         },
+                       ],
+                     };
+         
+                     // Create the bar chart options
+                     const options = {
+                       responsive: false,
+                       maintainAspectRatio: false,
+                     };
+         
+                     // Get the canvas element
+                     const canvas = document.getElementById("barChart");
+         
+                     // Create the bar chart
+                     new Chart(canvas, {
+                       type: "bar",
+                       data: data,
+                       options: options,
+                     });
+                   })
+                   .catch(error => {
+                     console.log(error);
+                   });
+               });
+             </script>
+             
+             <!-- listrans -->
+             
+     
+           </div>
+         </div>
+         
+         <!-- running low -->
+         <div style=" margin:30px; padding: 20px; border: 1px solid #E7E8F0; 
+         background-color: #E6D1F2; 
+         border-radius: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+         " >
+    <h1>Product List <small>(Running Low)</small></h1>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <table>
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody"></tbody>
+    </table>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Make a fetch request to the server endpoint
+        fetch("http://localhost:3000/listProducts")
+          .then(response => response.json())
+          .then(response => {
+            // Handle the response data and update the HTML content
+            var products = response;
+            var tableContent = "";
+
+            // Iterate over each product and generate table rows
+            for (var i = 0; i < products.length; i++) {
+              var product = products[i];
+              tableContent += "<tr>";
+              tableContent += "<td>" + product.prod_id + "</td>";
+              tableContent += "<td>" + product.prod_name + "</td>";
+              tableContent += "<td>" + product.prod_qty + "</td>";
+              tableContent += "</tr>";
+            }
+
+            // Update the HTML table body with the generated content
+            document.getElementById("productTableBody").innerHTML = tableContent;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      });
+    </script>
+         </div>
+
+
+
+
+        </div>
+
+          <!-- LISTTRANS -->
+        <div style=" margin:30px; padding: 40px; border: 1px solid #E7E8F0; 
+        background-color:#E6D1F2; 
+        border-radius: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        overflow: auto;
+  max-height: 250px; /* Set a maximum height to enable scrolling */" >
+        
+        <h1>Transaction List</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Transaction ID</th>
+              <th>Products ID</th>
+              <!-- <th>Product Name</th> -->
+              <th>Quantity</th>
+              <th>Transaction Type</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTableBody">
+            <!-- Table rows will be dynamically generated here -->
+          </tbody>
+        </table>
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            // Make a fetch request to the server endpoint
+            fetch("http://localhost:3000/gettrans")
+              .then(response => response.json())
+              .then(transactions => {
+                // Handle the response data and update the HTML content
+                var tableContent = "";
+      
+                // Iterate over each transaction and generate table rows
+                transactions.forEach(function(transaction) {
+                  var transactionType = transaction.trans_status ? "instock" : "destock";
+                  tableContent += "<tr>";
+                  tableContent += "<td>" + transaction.trans_id + "</td>";
+                  tableContent += "<td>" + transaction.prod_id + "</td>";
+                  tableContent += "<td>" + transaction.trans_qty + "</td>";
+                  tableContent += "<td>" + transactionType + "</td>";
+                  tableContent += "</tr>";
+                });
+      
+                // Update the HTML table body with the generated content
+                document.getElementById("transactionTableBody").innerHTML = tableContent;
+              })
+              .catch(error => {
+                console.log(error);
+              });
+          });
+        </script>
+        
+        </div>
+      </section>
+    </div>
+                                
+      </div>
+                                
+    </div> 
+
+
+    <script type="text/javascript" src="logout.js"></script>
+  </body>
+</html>

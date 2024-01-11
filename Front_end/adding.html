@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css\add.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <title>Add Product</title>
+  <script>
+    function addProduct() {
+      const prod_name = document.getElementById('prod_name').value;
+      const prod_qty = document.getElementById('prod_qty').value;
+      const prod_category = document.getElementById('prod_category').value;
+
+      const data = {
+        prod_name: prod_name,
+        prod_qty: prod_qty,
+        prod_category: prod_category
+      };
+
+      fetch('http://localhost:3000/addproduct', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        if(result.errors) {
+          throw new Error(result.errors[0].error)
+        }
+        console.log(result);
+        alert('Product added successfully');
+      })
+      .catch(error => {
+        alert(error)
+        // alert(error.errors[0].error)
+        // alert('Failed to add product');
+      });
+    }
+  </script>
+</head>
+<body>
+   <!-- SIDEBAR & NAVBAR -->
+   <div style="display: flex; flex-direction: row; width: 100wh; height: 100vh;">
+    <div style="display: flex; flex-direction: row;
+    width: 20%;
+    height: 150%;
+    padding: 20px;
+    /* background-color: aquamarine; */
+    /* background-color: white; */
+    border-right: 0.5px solid lightblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+    ">
+      <div style="display: flex; flex-direction: column;">
+        <div style="display:flex; flex-direction: row; justify-content: center; align-items: center;" >
+          <img src="tse.png" alt="" width="70%" style="border: 1px solid black;border-radius: 100px; box-shadow: 0 0 30px rgba(192, 19, 211, 0.2)">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; justify-content: center; align-items: center;font-family: Arial, Helvetica, sans-serif;font-size: 22px;">
+          <div>USER</div>
+
+          <!-- SIDEBAR BUTTON -->
+          <button onclick="goToHomePage()" style="display: flex; cursor: pointer; padding: 4px 10px;  width: 200px; border: none; font-size: 18px; font-family:cursive;font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                home
+                </span>
+            </i> 
+            <div style="margin-left: 10px;">
+              Home 
+
+            </div>
+            <script>
+              function goToHomePage() {
+                window.location.href = 'user.html';
+              }
+              </script>
+          </button>
+          <button onclick="goToProductPage()" style="display: flex; cursor: pointer; padding: 4px 10px;  width: 200px; border: none; font-size: 18px; font-family:cursive;font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                add_shopping_cart
+                </span>
+            </i> 
+            <div style="margin-left: 10px;">
+              Products 
+            </div>
+            <script>
+              function goToProductPage() {
+                window.location.href = 'adding.html';
+              }
+              </script>
+          </button>
+          <button onclick="goToDeletePage()" style="display: flex; cursor: pointer; padding: 4px 10px;  width: 200px; border: none; font-size: 18px; font-family:cursive;font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                summarize
+                </span>
+            </i> 
+            <div style="margin-left: 10px;">
+              Delete 
+
+            </div>
+            <script>
+              function goToDeletePage() {
+                window.location.href = 'delete.html';
+              }
+              </script>
+          </button>
+          <button onclick="goToTransactionPage()" style="display: flex; cursor: pointer; padding: 4px 10px;   width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+          onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+          >
+            <i  class="material-icons">
+              <span class="material-symbols-rounded">
+                paid
+                </span>
+            </i>
+            <div style="margin-left: 10px;">
+              Transaction 
+
+            </div>
+            <script>
+              function goToTransactionPage() {
+                window.location.href = 'transaction.html';
+              }
+              </script>
+            </button>
+              <button onclick="logout()" style="display: flex; cursor: pointer; padding: 4px 10px;   width: 200px; border: none; font-size: 18px; font-family:cursive; font-weight:900;color: #2A3547; height: 60px; border-radius: 12px;  align-items: center; background-color:#ffe4e1;"
+              onmouseover="this.style.backgroundColor='rgba(73, 190, 255, 0.85)'" onmouseout="this.style.backgroundColor='#ffe4e1'"
+              >
+                <i  class="material-icons">
+                  <span class="material-symbols-rounded">
+                    logout
+                    </span> 
+                </i>
+                <div style="margin-left: 10px;">
+                  Log Out 
+  
+                </div>
+                </button>
+
+        </div>
+
+      </div>
+      
+    </div>
+   
+    <div style="
+    display: flex; 
+    flex-direction:column; 
+    justify-content: space-between;
+            width: 80%;
+    /* background-color: blueviolet; */
+    ">
+
+      
+      <div style="display: flex; flex-direction: column; width: 100%;">
+
+        <div style="display: flex; flex-direction: row; justify-content:flex-end; align-items: center; width: 100%; height: 60px;  
+        /* background-color: blanchedalmond; */
+        background-color: white;
+        border-bottom: 1px solid lightblue ;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        ">
+                <div class="running-text">
+                  <p>ONLINE GROCERY MANAGEMENT SYSTEM</p>
+                </div>
+          
+          <div style="display: flex; flex-direction: row; 
+              height: 50px; 
+              width: 50px;
+              margin-right: 20px;
+              border-radius: 20px;
+             background-color: lightblue;
+             justify-content: center;
+             align-items: center;">
+           
+            <img src="user-1.jpg" alt="" width="35" height="35" class="rounded-circle" >
+
+          </div>
+
+        </div>
+      </div>
+      <section>
+      <div style=" display: flex; flex-direction: column; justify-content: center; align-items: center; 
+      /* background-color: pink;  */
+      /* background-color: white; */
+       height: 100%; ">
+       <div class="container">
+        
+        <div class="addProductContainer">
+          <h1>Add Product</h1>
+          <form class="addProductForm">
+            <div id="productInput">
+            <label for="prod_name">Product Name:</label>
+            <input type="text" id="prod_name" name="prod_name"><br><br>
+        
+            <label for="prod_qty">Quantity:</label>
+            <input type="number" id="prod_qty" name="prod_qty"><br><br>
+        
+            <label for="prod_category">Category:</label>
+            <input type="text" id="prod_category" name="prod_category"><br><br>
+          </div>
+            <button type="button" onclick="addProduct()">Add Product</button>
+          </form>
+        </div>
+      
+      </div>
+      </div>
+    </section>
+                              
+    </div>
+                              
+  </div> 
+  <script type="text/javascript" src="logout.js"></script>
+</body>
+</html>

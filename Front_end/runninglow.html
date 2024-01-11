@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+  </head>
+  <body>
+    <h1>Product List</h1>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <table>
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody"></tbody>
+    </table>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Make a fetch request to the server endpoint
+        fetch("http://localhost:3000/listProducts")
+          .then(response => response.json())
+          .then(response => {
+            // Handle the response data and update the HTML content
+            var products = response;
+            var tableContent = "";
+
+            // Iterate over each product and generate table rows
+            for (var i = 0; i < products.length; i++) {
+              var product = products[i];
+              tableContent += "<tr>";
+              tableContent += "<td>" + product.prod_id + "</td>";
+              tableContent += "<td>" + product.prod_name + "</td>";
+              tableContent += "<td>" + product.prod_qty + "</td>";
+              tableContent += "</tr>";
+            }
+
+            // Update the HTML table body with the generated content
+            document.getElementById("productTableBody").innerHTML = tableContent;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      });
+    </script>
+  </body>
+</html>

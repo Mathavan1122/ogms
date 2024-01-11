@@ -1,0 +1,154 @@
+/* Custom styles for the dashboard */
+
+/* Header */
+.navbar {
+    background-color: #bfc20c;
+    color: #fff;
+    padding: 10px;
+    height: 50px;
+    width: 100wh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 100px;
+    background-color: #4150b2;
+    padding: 10px;
+    height: 100vh;
+  }
+  
+  /* Content Area */
+  .content {
+    flex: 1;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 800px; /* Adjust the max-width as needed */
+    background-color: pink;
+  }
+  
+
+
+.material-icons.material-symbols-sharp {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  tr{
+text-align: right;
+
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr:hover {
+    background-color: #eaf6ff;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .addProductContainer h1{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+.productInput label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 10px;
+}
+  .addProductContainer {
+    background-color: #f1f1f1; /* Add a background color for visual separation */
+    padding: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-left: 20%;
+
+  }
+  
+
+  .transactionfsorm {
+    width: 100%;
+    padding: 10%;
+  }
+  
+  .addProductForm input[type="text"],
+  .addProductForm input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .transactionform input[type="button"] {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10%;
+  }
+  
+  table {
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+  }
+  
+  
+  .running-text {
+    width: 100%;
+    margin-top: 2%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+  }
+  
+  .running-text p {
+    animation: marquee 20s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+
+
+
+
